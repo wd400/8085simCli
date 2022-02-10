@@ -43,10 +43,9 @@ Some rules for writing a script file
 
 1. You can only enter hex values of the corresponding opcodes of 8085 instruction set.
 2. Every hexcode should be on a new line
-3. Make sure you terminate the code with a stop code
-4. If a hexcode terminates in a semicolon(:), it is considered to be a memory location. The memory pointer will be reset to this location while writing the hexocodes.
-5. If a line starts with '/', it is considered a comment
-6. Anything other than the above mentioned things will be thrown as error.
+3. If a hexcode terminates in a semicolon(:), it is considered to be a memory location. The memory pointer will be reset to this location while writing the hexcodes.
+4. If a line starts with '/', it is considered a comment
+5. Anything other than the above mentioned things will be thrown as error.
 
 
 The examples directory list few examples of how a script file should be written.
