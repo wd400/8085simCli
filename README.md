@@ -24,9 +24,9 @@ python execute.py somefile.txt -options
 -flag    display flag values in the output
 -port    display the ports in the output
 
--start [MEM] specify a start  memory location for the compiler to start execution from.
+-start [MEM]    specify a start memory location for the compiler to start execution from.
 
--read [MEM]  display a certain memory location after the compiler executes.
+-read [MEM]     display a certain memory location after the compiler executes.
 
 -output [FILE]   pipe the output to a text file instead of logging in console.
 
