@@ -28,7 +28,7 @@ python execute.py somefile.txt -options
 
 -read [MEM]     display a certain memory location after the compiler executes.
 
--output [FILE]   pipe the output to a text file instead of logging in console.
+-output [FILE]   pipe the output to a text file instead of logging onto console.
 
 ```
 
