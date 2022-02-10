@@ -1,6 +1,9 @@
 # 8085simCli
 8085 sim CLI version
 
+***######A simple 8085 CLI compiler that converts hexcodes from a textfile and produces the corresponding output.***
+
+
 
 Clone the repository 
 
