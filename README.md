@@ -12,7 +12,7 @@ cd 8085simCli
 
 Ensure you have python installed and is set in your PATH
 
-execute the execute.py with a text file that you want to execute.
+Execute the execute.py with a text file that you want to execute.
 
 ```
 python execute.py somefile.txt -options
@@ -44,3 +44,6 @@ Some rules for writing a script file
 4. If a hexcode terminates in a semicolon(:), it is considered to be a memory location. The memory pointer will be reset to this location while writing the hexocodes.
 5. If a line starts with '/', it is considered a comment
 6. Anything other than the above mentioned things will be thrown as error.
+
+
+The examples directory list few examples of how a script file should be written.
