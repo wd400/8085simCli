@@ -106,8 +106,9 @@ start = get_options('-start') if get_options('-start')!=None else start
 loc = start
 if(file==None):
     exit()
-string = list(filter(lambda x:x!='',open(file,'r').read().split('\n')))
-string = [i.strip() for i in string]
+
+
+string = [i.split(';')[0].strip() for i in open(file,'r').read().split('\n')]
 
 
 # WRITING HEXCODES TO MEMORY
