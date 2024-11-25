@@ -1,3 +1,9 @@
+MAX_ITERATIONS = 10000
+
+iteration_count = 0
+
+
+
 # python execute.py FILE.txt
 single_byte = [0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F,
                0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F,
@@ -152,12 +158,14 @@ cu.SetPC(start)
 
 
 
+
+
 # EXECUTES AND LOGS MESSAGES ONTO CONSOLE
 print("________________________________INSTRUCTION LOG_________________________________")
 print("PC starting At "+hex(cu.GetPC()))
 at_pc = "At PC "
 fetched_byte = " Fetched byte "
-while cu.running:
+while cu.running and iteration_count < MAX_ITERATIONS:
     try:
         hexcode = hex(bus.ReadMemory(cu.GetPC()))
         if int(hexcode,16) == 0x00:
@@ -190,9 +198,15 @@ while cu.running:
         if cu.stack:
             print("SP: "+hex(alu.getRegister('SP')))
             cu.stack = False
+        iteration_count += 1
     except Exception as e:
         print(ERROR_RED+'Error at '+hex(cu.GetPC())+'\033[0m')
         sys.exit()
+
+if iteration_count >= MAX_ITERATIONS:
+    print(ERROR_RED+'Maximum iterations reached.'+'\033[0m')
+
+
 print('\033[92m'+'Done!'+'\033[0m')
 
 

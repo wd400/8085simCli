@@ -99,18 +99,33 @@ def compiler(codestr):
     return res
 
 
-# 06
-# 0D
-# 78
-# 06
-# 01
-# 80
-# 76
-program = """MVI B 0xd
-MOV A,B
+
+
+
+def compile_program(program):
+    res = []
+    for i in program.strip().split('\n'):
+        print(i)
+        res.extend([hex(x) for x in compiler(i)])
+    return res
+
+
+program = """MVI A 0x0
 MVI B 0x1
 ADD B
+JMP 0020
 HLT"""
 
-for i in program.split('\n'):
-    print(i,compiler(i))
+program+="""
+JMP 0020
+OUT 0x01
+IN 0x01
+HLT"""
+
+compiled=compile_program(program)
+
+print(compiled)
+
+with open('program.txt','w') as f:
+    for i in compiled:
+        f.write(i[2:]+'\n')
