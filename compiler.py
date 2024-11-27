@@ -110,16 +110,18 @@ def compile_program(program):
     return res
 
 
-program = """MVI A 0x0
-MVI B 0x1
-ADD B
-JMP 0020
-HLT"""
+# program = """MVI A 0x0
+# MVI B 0x1
+# ADD B
+# JMP 0020
+# HLT"""
 
-program+="""
-JMP 0020
-OUT 0x01
-IN 0x01
+program = """SHLD 2024
+NOP
+LHLD 2024
+SHLD 2024
+NOP
+LHLD 2024
 HLT"""
 
 compiled=compile_program(program)
@@ -129,3 +131,6 @@ print(compiled)
 with open('program.txt','w') as f:
     for i in compiled:
         f.write(i[2:]+'\n')
+
+
+
